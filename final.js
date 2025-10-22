@@ -1,6 +1,8 @@
 let groceryList = [] //array of items
 let filters = {none: 0, purchased: 1, unpurchased: 2}
 let currentFilter = filters.none;
+let containerElement = document.getElementsByTagName("main")[0]
+let templateHTML = "<p></p>" //maybe needs more work?
 
 class Item
 {
@@ -25,6 +27,9 @@ class Item
     {
     //TODO: create element with defualt HTML
     //include onclick function
+    this.element = document.createElement("div");
+    this.element.innerHTML = templateHTML
+    this.element.onclick= () => {itemClicked(this)} //hopefully passes the object, needs tested
 
     }
 
