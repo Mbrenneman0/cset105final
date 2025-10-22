@@ -35,9 +35,12 @@ class Item
 
 }
 
+function addItem() {
+    let item = prompt("What item do you want to add?")
+    groceryList.push(new Item(item))
+}
+
 itemClicked(item)
 {
-    //TODO: the onclick function of each item
-    //puts linethrough over item text and marks it as purchased or unpurchased.
-    
+    // put line through then delete line
 }
