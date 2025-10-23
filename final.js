@@ -2,8 +2,9 @@ let groceryList = [] //array of items
 let filters = {none: 0, purchased: 1, unpurchased: 2}
 let currentFilter = filters.none;
 let containerElement = document.getElementsByTagName("main")[0]
-let templateHTML = "<p></p>" //maybe needs more work?
+let templateHTML = "<p class=item-text></p>" //maybe needs more work?
 let parentContainer = document.getElementById("parentContainer")
+
 
 class Item
 {
@@ -12,6 +13,7 @@ class Item
         this.name = name;
         createHTML();
         updateInnerText();
+        
     }
     
     addToDisplay()
@@ -37,6 +39,8 @@ class Item
     updateInnerText()
     {
         //TODO: sets the innerText of the html
+        let textP = this.element.getElementsByClassName("item-text")[0];
+        textP.innerText = this.name;
     }
 
 }
