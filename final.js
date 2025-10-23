@@ -99,21 +99,42 @@ function filterItems(btn)
     }
 }
 
-// function updateList()
-// {
-//     //checks filters and displays each item based on whether it passes the filter
-//     for(document)
+function updateList()
+{
+    //checks filters and displays each item based on whether it passes the filter
+    
+    //first, delete all elements from the parent container
+    for(let i = parentContainer.getElementsByTagName("div").length-1; i >= 0; i--)
+    {
+        parentContainer.getElementsByTagName("div")[i].remove();
+    }
 
-//     for(let i = 0; i <= groceryList.length; i++)
-//     {
-//         if(currentFilter === filters.none)
-//         {
-            
-//         }
-//     }
-// }
 
-getIndex(listElement)
+    for(let i = 0; i < groceryList.length; i++)
+    {
+        if(currentFilter === filters.none)
+        {
+            parentContainer.appendChild(groceryList[i].element);
+            console.log(`${groceryList[i].name} added`);
+        }
+        else if(currentFilter === filters.purchased)
+        {
+            if(groceryList[i].purchased)
+            {
+                parentContainer.appendChild(groceryList[i].element);
+                console.log(`${groceryList[i].name} added`);
+            }
+        }
+        else if(currentFilter === filters.unpurchased)
+        {
+            if(!groceryList[i].purchased)
+                parentContainer.appendChild(groceryList[i].element);
+                console.log(`${groceryList[i].name} added`); 
+        }
+    }
+}
+
+function getIndex(listElement)
 {
     for(let index=0; index < groceryList.length; index++)
     {
@@ -124,7 +145,7 @@ getIndex(listElement)
     }
 }
 
-getItem(listElement)
+function getItem(listElement)
 {
     return groceryList[getIndex(listElement)];
 }
