@@ -58,9 +58,14 @@ function addItem() {
     }
 }
 
-function itemClicked(item)
-{
-    // put line through then delete line
+function itemClicked(item) {
+    if (item.purchased = false) {
+        item.purchased = true
+        item.templateHTML.style.textDecoration = "line-through"
+    } else {
+        item.purchased = false
+        templateHTML.style.textDecoration = "none";
+    }
 }
 
 function filterItems(btn)
