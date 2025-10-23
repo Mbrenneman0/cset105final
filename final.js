@@ -11,6 +11,7 @@ class Item
     constructor(name)
     {
         this.name = name;
+        this.purchased = false;
         this.createHTML();
         this.updateInnerText();
         this.addToDisplay();
@@ -24,6 +25,7 @@ class Item
     removeFromDisplay()
     {
         //TODO: removes the item from the parent container
+        this.element.remove()
     }
 
     createHTML()
@@ -56,7 +58,23 @@ function addItem() {
     }
 }
 
-itemClicked(item)
+function itemClicked(item)
 {
     // put line through then delete line
+}
+
+function filterItems(btn)
+{
+    console.log(btn)
+    if(btn.id === "purchased-filter")
+    {
+        if(btn.class.contains("active"))
+        {
+            
+        }
+    }
+    else if(btn.id === "unpurchased-filter")
+    {
+
+    }
 }
