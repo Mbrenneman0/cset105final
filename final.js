@@ -113,7 +113,7 @@ function filterItems(btn)
 //     }
 // }
 
-getIndex(listElement)
+function getIndex(listElement)
 {
     for(let index=0; index < groceryList.length; index++)
     {
@@ -124,7 +124,7 @@ getIndex(listElement)
     }
 }
 
-getItem(listElement)
+function getItem(listElement)
 {
     return groceryList[getIndex(listElement)];
 }
