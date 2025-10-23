@@ -11,9 +11,9 @@ class Item
     constructor(name)
     {
         this.name = name;
-        createHTML();
-        updateInnerText();
-        
+        this.createHTML();
+        this.updateInnerText();
+        this.addToDisplay();
     }
     
     addToDisplay()
