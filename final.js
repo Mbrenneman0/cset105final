@@ -59,48 +59,52 @@ function addItem() {
 }
 
 function itemClicked(item) {
-    let object = getItem(item)
-    if (object.purchased === false) {
-        object.purchased = true
-        object.element.style.textDecoration = "line-through"
-        console.log(getIndex(item))  
+    console.log(item);
+    if (item.purchased === false) {
+        item.purchased = true
+        item.element.style.textDecoration = "line-through"
+        // console.log(getIndex(item))
     } else {
-        object.purchased = false
-        object.element.style.textDecoration = "none"
-        console.log(getIndex(item))
+        item.purchased = false
+        item.element.style.textDecoration = "none"
+        // console.log(getIndex(item))
     }
-    groceryList[getIndex(item)] = object
+    // groceryList[getIndex(item)] = object
 }
 
 function filterItems(btn)
 {
     console.log(btn)
+    console.log(btn.className)
+    console.log(btn.id)
     if(btn.id === "purchased-filter")
     {
-        if(btn.class.contains("active"))
+        if(btn.className.includes("active"))
         {
             currentFilter = filters.none;
-            btn.class = btn.class.replace(" active", ""); // removes the "active" class without removing any other classes
+            btn.className = btn.className.replace(" active", ""); // removes the "active" class without removing any other classes
         }
         else
         {
+            console.log("here")
             currentFilter = filters.purchased;
-            btn.class += " active";
+            btn.className += " active";
         }
     }
     else if(btn.id === "unpurchased-filter")
     {
-        if(btn.class.contains("active"))
+        if(btn.className.includes("active"))
         {
             currentFilter = filters.none;
-            btn.class = btn.class.replace(" active", ""); // removes the "active" class without removing any other classes
+            btn.className = btn.className.replace(" active", ""); // removes the "active" class without removing any other classes
         }
         else
         {
             currentFilter = filters.unpurchased;
-            btn.class += " active";
+            btn.className += " active";
         }
     }
+    updateList();
 }
 
 function updateList()
@@ -141,7 +145,9 @@ function updateList()
 
 function getIndex(listElement)
 {
-    let text = listElement.innerText
+
+    let text = listElement.getElementsByClassName("item-text")[0].innerText;
+    console.log(text);
     for(let index=0; index < groceryList.length; index++)
     {
         if (parentContainer.getElementsByClassName("item-text")[index].innerText === groceryList[index].name)
