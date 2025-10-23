@@ -75,4 +75,5 @@ aside p {
     font-weight: 400;
     padding: 10px 20px;
     border-bottom: 2px dashed #000;
+    cursor: pointer;
 }

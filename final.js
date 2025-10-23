@@ -58,13 +58,12 @@ function addItem() {
     }
 }
 
-function itemClicked(item)
-{
-    if (this.purchased = false) {
-        this.purchased = true
-        templateHTML.style.textDecoration = "line-through";
+function itemClicked(item) {
+    if (item.purchased = false) {
+        item.purchased = true
+        item.templateHTML.style.textDecoration = "line-through"
     } else {
-        this.purchased = false
+        item.purchased = false
         templateHTML.style.textDecoration = "none";
     }
 }
