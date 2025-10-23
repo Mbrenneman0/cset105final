@@ -50,8 +50,29 @@ aside p {
 
 .filter {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .filter button {
     margin: 0 20px;
+}
+
+#parentContainer {
+    border: 3px solid #000;
+    height: 400px;
+    padding: 0 40px;
+    overflow: scroll;
+
+}
+
+.item-text::before {
+    content: "• ";
+    color: black;
+}
+
+.item-text {
+    display: block;
+    font-weight: 400;
+    padding: 10px 20px;
+    border-bottom: 2px dashed #000;
 }

@@ -58,5 +58,12 @@ function addItem() {
 
 itemClicked(item)
 {
-    // put line through then delete line
+    if (this.purchased = false) {
+        this.purchased = true
+        templateHTML.style.textDecoration = "line-through";
+    } else {
+        this.purchased = false
+        templateHTML.style.textDecoration = "none";
+    }
+
 }
