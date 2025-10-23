@@ -52,6 +52,7 @@ class Item
 
 function addItem() {
     let item = prompt("What item do you want to add?")
+    item = item.trimStart();
     if(item !== "")
     {
         groceryList.push(new Item(item))
@@ -90,6 +91,9 @@ function filterItems(btn)
             currentFilter = filters.purchased;
             btn.className += " active";
         }
+        if (document.getElementById("unpurchased-filter").className.includes("active")) {
+             document.getElementById("unpurchased-filter").className = document.getElementById("unpurchased-filter").className.replace(" active", "")
+        }
     }
     else if(btn.id === "unpurchased-filter")
     {
@@ -102,6 +106,9 @@ function filterItems(btn)
         {
             currentFilter = filters.unpurchased;
             btn.className += " active";
+        }
+        if (document.getElementById("purchased-filter").className.includes("active")) {
+             document.getElementById("purchased-filter").className = document.getElementById("purchased-filter").className.replace(" active", "")
         }
     }
     updateList();
