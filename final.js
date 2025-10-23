@@ -59,11 +59,11 @@ function addItem() {
 }
 
 function itemClicked(item) {
-    let object = getItem(item)
-    if (object.purchased === false) {
-        object.purchased = true
-        object.element.style.textDecoration = "line-through"
-        console.log(getIndex(item))  
+    console.log(item);
+    if (item.purchased === false) {
+        item.purchased = true
+        item.element.style.textDecoration = "line-through"
+        // console.log(getIndex(item))
     } else {
         item.purchased = false
         item.element.style.textDecoration = "none"
