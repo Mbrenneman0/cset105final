@@ -110,6 +110,17 @@ function filterItems(btn)
              document.getElementById("purchased-filter").className = document.getElementById("purchased-filter").className.replace(" active", "")
         }
     }
+
+    if (btn.id === "all-filter") {
+        currentFilter = filters.none
+        if (document.getElementById("unpurchased-filter").className.includes("active")) {
+             document.getElementById("unpurchased-filter").className = document.getElementById("unpurchased-filter").className.replace(" active", "")
+        }
+        
+        if (document.getElementById("purchased-filter").className.includes("active")) {
+             document.getElementById("purchased-filter").className = document.getElementById("purchased-filter").className.replace(" active", "")
+        }
+    }
     updateList();
 }
 
