@@ -75,11 +75,56 @@ function filterItems(btn)
     {
         if(btn.class.contains("active"))
         {
-            
+            currentFilter = filters.none;
+            btn.class = btn.class.replace(" active", ""); // removes the "active" class without removing any other classes
+        }
+        else
+        {
+            currentFilter = filters.purchased;
+            btn.class += " active";
         }
     }
     else if(btn.id === "unpurchased-filter")
     {
-
+        if(btn.class.contains("active"))
+        {
+            currentFilter = filters.none;
+            btn.class = btn.class.replace(" active", ""); // removes the "active" class without removing any other classes
+        }
+        else
+        {
+            currentFilter = filters.unpurchased;
+            btn.class += " active";
+        }
     }
+}
+
+// function updateList()
+// {
+//     //checks filters and displays each item based on whether it passes the filter
+//     for(document)
+
+//     for(let i = 0; i <= groceryList.length; i++)
+//     {
+//         if(currentFilter === filters.none)
+//         {
+            
+//         }
+//     }
+// }
+
+getIndex(listElement)
+{
+    for(let index=0; index < groceryList.length; index++)
+    {
+        if(listElement.getElementsByClassName("item-text")[0].innerText === groceryList[index].name)
+        {
+            return index;
+        }
+    }
+}
+
+getItem(listElement)
+{
+    return groceryList[getIndex(listElement)];
 }
