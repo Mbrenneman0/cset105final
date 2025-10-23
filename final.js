@@ -3,6 +3,7 @@ let filters = {none: 0, purchased: 1, unpurchased: 2}
 let currentFilter = filters.none;
 let containerElement = document.getElementsByTagName("main")[0]
 let templateHTML = "<p></p>" //maybe needs more work?
+let parentContainer = document.getElementById("parentContainer")
 
 class Item
 {
@@ -15,7 +16,7 @@ class Item
     
     addToDisplay()
     {
-        //TODO: adds the item to the parent container
+        parentContainer.appendChild(this.element)
     }
 
     removeFromDisplay()
