@@ -79,3 +79,7 @@ aside p {
     -webkit-user-select: none;
     user-select: none;
 }
+
+.active {
+    border: 4px solid #000;
+}
