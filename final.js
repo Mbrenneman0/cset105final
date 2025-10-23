@@ -52,6 +52,7 @@ class Item
 
 function addItem() {
     let item = prompt("What item do you want to add?")
+    item = item.trimStart();
     if(item !== "")
     {
         groceryList.push(new Item(item))
