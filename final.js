@@ -63,7 +63,7 @@ function itemClicked(item) {
     if (object.purchased === false) {
         object.purchased = true
         object.element.style.textDecoration = "line-through"
-        console.log(getIndex(item))
+        console.log(getIndex(item))  
     } else {
         object.purchased = false
         object.element.style.textDecoration = "none"
