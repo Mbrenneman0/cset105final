@@ -59,13 +59,17 @@ function addItem() {
 }
 
 function itemClicked(item) {
-    if (item.purchased = false) {
-        item.purchased = true
-        item.templateHTML.style.textDecoration = "line-through"
+    let object = getItem(item)
+    if (object.purchased === false) {
+        object.purchased = true
+        object.element.style.textDecoration = "line-through"
+        console.log(getIndex(item))
     } else {
-        item.purchased = false
-        templateHTML.style.textDecoration = "none";
+        object.purchased = false
+        object.element.style.textDecoration = "none"
+        console.log(getIndex(item))
     }
+    groceryList[getIndex(item)] = object
 }
 
 function filterItems(btn)
@@ -134,12 +138,15 @@ function updateList()
     }
 }
 
+
 function getIndex(listElement)
 {
+    let text = listElement.innerText
     for(let index=0; index < groceryList.length; index++)
     {
-        if(listElement.getElementsByClassName("item-text")[0].innerText === groceryList[index].name)
+        if (parentContainer.getElementsByClassName("item-text")[index].innerText === groceryList[index].name)
         {
+            console.log(index)
             return index;
         }
     }

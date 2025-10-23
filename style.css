@@ -76,4 +76,6 @@ aside p {
     padding: 10px 20px;
     border-bottom: 2px dashed #000;
     cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
 }
