@@ -30,6 +30,7 @@ class Item
     {
     //TODO: create element with defualt HTML
     //include onclick function
+    console.log("createHTML()")
     this.element = document.createElement("div");
     this.element.innerHTML = templateHTML
     this.element.onclick= () => {itemClicked(this)} //hopefully passes the object, needs tested
@@ -39,15 +40,20 @@ class Item
     updateInnerText()
     {
         //TODO: sets the innerText of the html
+        console.log("updateInnerText()")
         let textP = this.element.getElementsByClassName("item-text")[0];
         textP.innerText = this.name;
+        console.log(textP);
     }
 
 }
 
 function addItem() {
     let item = prompt("What item do you want to add?")
-    groceryList.push(new Item(item))
+    if(item !== "")
+    {
+        groceryList.push(new Item(item))
+    }
 }
 
 itemClicked(item)
