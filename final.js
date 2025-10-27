@@ -2,7 +2,7 @@ let groceryList = [] //array of items
 let filters = {none: 0, purchased: 1, unpurchased: 2}
 let currentFilter = filters.none;
 let containerElement = document.getElementsByTagName("main")[0]
-let templateHTML = "<p class=item-text></p>" //maybe needs more work?
+let templateHTML = `<p class=item-text></p><button class="remove-item" onclick="removeItem(this)">Remove</button>` //maybe needs more work?
 let parentContainer = document.getElementById("parentContainer")
 
 
@@ -46,6 +46,11 @@ class Item
         let textP = this.element.getElementsByClassName("item-text")[0];
         textP.innerText = this.name;
         console.log(textP);
+    }
+
+    remove()
+    {
+        
     }
 
 }
@@ -180,3 +185,5 @@ function getItem(listElement)
 {
     return groceryList[getIndex(listElement)];
 }
+
+function()
