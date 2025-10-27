@@ -34,6 +34,7 @@ class Item
     //include onclick function
     console.log("createHTML()")
     this.element = document.createElement("div");
+    this.element.className = "item"
     this.element.innerHTML = templateHTML
     this.element.onclick= () => {itemClicked(this)} //hopefully passes the object, needs tested
 
@@ -185,5 +186,3 @@ function getItem(listElement)
 {
     return groceryList[getIndex(listElement)];
 }
-
-function()
