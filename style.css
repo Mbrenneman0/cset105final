@@ -71,10 +71,9 @@ button {
 }
 
 .item-text {
-    display: block;
+    display: inline-block;
     font-weight: 400;
     padding: 10px 20px;
-    border-bottom: 2px dashed #000;
     cursor: pointer;
     -webkit-user-select: none;
     user-select: none;
@@ -82,4 +81,19 @@ button {
 
 .active {
     font-weight: bold;
+}
+
+.remove-item {
+    display: block;
+    padding: 5px;
+    width: 60px;
+    margin: 0 auto;
+}
+
+.item {
+    display: grid;
+    grid-template-columns: auto auto;
+    border-bottom: 2px dashed #000;
+    margin: 10px 0;
+    padding-bottom: 10px;
 }

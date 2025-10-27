@@ -33,6 +33,7 @@ class Item
     //creates element with defualt HTML
     //includes onclick function
     this.element = document.createElement("div");
+    this.element.className = "item"
     this.element.innerHTML = templateHTML
     this.element.onclick= () => {itemClicked(this)} //hopefully passes the object, needs tested
 
