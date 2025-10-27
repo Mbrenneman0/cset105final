@@ -73,6 +73,11 @@ button {
     padding-bottom: 10px;
 }
 
+.item:hover .remove-item {
+    opacity: 100%;
+    transition-duration: 0.4s;
+}
+
 .item-text::before {
     content: "• ";
     color: black;
@@ -89,9 +94,11 @@ button {
 
 .remove-item {
     display: block;
+    opacity: 0%;
     padding: 5px;
     width: 60px;
     margin: 0 auto;
+    transition-duration: 0.3s;
 }
 
 .active {
