@@ -52,6 +52,11 @@ function addItem() {
     item = item.trimStart();
     if(item !== "")
     {
+        if(getIndex(item) !== -1)
+        {
+            window.alert("Item already exists!!!");
+            return;
+        }
         groceryList.push(new Item(item))
     }
 }
@@ -150,7 +155,15 @@ function updateList()
 function getIndex(listElement)
 {
 
-    let text = listElement.getElementsByClassName("item-text")[0].innerText;
+    let text = "";
+    if (typeof(listElement) === "string")
+    {
+        text = listElement
+    }
+    else
+    {
+        text = listElement.getElementsByClassName("item-text")[0].innerText
+    }
     for(let index=0; index < groceryList.length; index++)
     {
         if (parentContainer.getElementsByClassName("item-text")[index].innerText === text)
@@ -158,6 +171,8 @@ function getIndex(listElement)
             return index;
         }
     }
+
+    return -1; //if the item doesnt exist
 }
 
 function getItem(listElement)
