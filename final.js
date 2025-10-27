@@ -24,15 +24,14 @@ class Item
 
     removeFromDisplay()
     {
-        //TODO: removes the item from the parent container
+        //removes the item from the parent container
         this.element.remove()
     }
 
     createHTML()
     {
-    //TODO: create element with defualt HTML
-    //include onclick function
-    console.log("createHTML()")
+    //creates element with defualt HTML
+    //includes onclick function
     this.element = document.createElement("div");
     this.element.innerHTML = templateHTML
     this.element.onclick= () => {itemClicked(this)} //hopefully passes the object, needs tested
@@ -41,18 +40,10 @@ class Item
 
     updateInnerText()
     {
-        //TODO: sets the innerText of the html
-        console.log("updateInnerText()")
+        //sets the innerText of the html
         let textP = this.element.getElementsByClassName("item-text")[0];
         textP.innerText = this.name;
-        console.log(textP);
     }
-
-    remove()
-    {
-        
-    }
-
 }
 
 function addItem() {
@@ -65,24 +56,17 @@ function addItem() {
 }
 
 function itemClicked(item) {
-    console.log(item);
     if (item.purchased === false) {
         item.purchased = true
         item.element.style.textDecoration = "line-through"
-        // console.log(getIndex(item))
     } else {
         item.purchased = false
         item.element.style.textDecoration = "none"
-        // console.log(getIndex(item))
     }
-    // groceryList[getIndex(item)] = object
 }
 
 function filterItems(btn)
 {
-    console.log(btn)
-    console.log(btn.className)
-    console.log(btn.id)
     if(btn.id === "purchased-filter")
     {
         if(btn.className.includes("active"))
@@ -92,7 +76,6 @@ function filterItems(btn)
         }
         else
         {
-            console.log("here")
             currentFilter = filters.purchased;
             btn.className += " active";
         }
@@ -135,21 +118,18 @@ function updateList()
         if(currentFilter === filters.none)
         {
             parentContainer.appendChild(groceryList[i].element);
-            console.log(`${groceryList[i].name} added`);
         }
         else if(currentFilter === filters.purchased)
         {
             if(groceryList[i].purchased)
             {
                 parentContainer.appendChild(groceryList[i].element);
-                console.log(`${groceryList[i].name} added`);
             }
         }
         else if(currentFilter === filters.unpurchased)
         {
             if(!groceryList[i].purchased)
                 parentContainer.appendChild(groceryList[i].element);
-                console.log(`${groceryList[i].name} added`); 
         }
     }
 }
@@ -159,12 +139,10 @@ function getIndex(listElement)
 {
 
     let text = listElement.getElementsByClassName("item-text")[0].innerText;
-    console.log(text);
     for(let index=0; index < groceryList.length; index++)
     {
-        if (parentContainer.getElementsByClassName("item-text")[index].innerText === groceryList[index].name)
+        if (parentContainer.getElementsByClassName("item-text")[index].innerText === text)
         {
-            console.log(index)
             return index;
         }
     }
@@ -175,4 +153,8 @@ function getItem(listElement)
     return groceryList[getIndex(listElement)];
 }
 
-function()
+function removeItem(item)
+{
+    groceryList.splice(getIndex(item.parentElement), 1);
+    updateList()
+}
